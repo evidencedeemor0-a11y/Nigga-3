@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Plum Updated · Banking</title>
+<meta name="theme-color" content="#0a3fdb" />
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="phone">
+  <div class="app" id="app">
+
+    <!-- ============ HOME SCREEN ============ -->
+    <section class="screen screen--home is-active" id="screen-home">
+      <div class="home-bg"></div>
+
+      <header class="home-header">
+        <div class="topbar">
+          <div class="greet" id="btnProfile" role="button" tabindex="0" aria-label="View profile">
+            <div class="avatar" id="userAvatar">E</div>
+            <div>
+              <p class="greet-hello">Hello,</p>
+              <h1 class="greet-name" id="userName">Esther</h1>
+            </div>
+          </div>
+          <div class="topbar-icons">
+            <button class="icon-btn" id="btnNotif" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 8a6 6 0 0 1 12 0v4.2l1.6 2.4a1 1 0 0 1-.83 1.6H5.23a1 1 0 0 1-.83-1.6L6 12.2V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 18.6a2.5 2.5 0 0 0 5 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+            <button class="icon-btn" id="btnSettings" aria-label="Settings">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h9M17 7h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="13" cy="7" r="2.2" stroke="currentColor" stroke-width="2"/><path d="M4 17h3M11 17h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="17" r="2.2" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <button class="quick-action" data-action="transfer">
+            <span class="quick-action__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h17m0 0-4.5-4.5M20 8l-4.5 4.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 16H4m0 0 4.5-4.5M4 16l4.5 4.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Transfer</span>
+          </button>
+          <button class="quick-action" data-action="send">
+            <span class="quick-action__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="8.2" r="3.8" stroke="currentColor" stroke-width="2.1"/><path d="M3.6 20.5c1.2-5.2 4.1-7.6 7.4-7.6" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><circle cx="18" cy="17.5" r="5.3" fill="#16a34a" stroke="#fff" stroke-width="1.5"/><path d="M18 15.1v4.8M15.6 17.5h4.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span>Pay anyone</span>
+          </button>
+          <button class="quick-action" data-action="deposit">
+            <span class="quick-action__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0-4.5-4.5M12 16l4.5-4.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20.5h16" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></span>
+            <span>Deposit</span>
+          </button>
+          <button class="quick-action" data-action="more">
+            <span class="quick-action__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.9" fill="currentColor"/><circle cx="12" cy="12" r="1.9" fill="currentColor"/><circle cx="19" cy="12" r="1.9" fill="currentColor"/></svg></span>
+            <span>More</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="home-main">
+        <button class="account-card" data-account="spending">
+          <div class="account-card__row">
+            <span class="account-card__label">Spending Account</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="account-card__balance" id="spendingBalance">$0.00</div>
+          <div class="account-card__divider"></div>
+          <div class="account-card__footer">
+            <span>View transactions</span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+
+        <button class="account-card" data-account="savings">
+          <div class="account-card__row">
+            <span class="account-card__label">Savings Account</span>
+            <span class="apy-pill">5.17% APY</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="account-card__balance" id="savingsBalance">$0.00</div>
+          <div class="account-card__divider"></div>
+          <div class="account-card__footer">
+            <span>View transactions</span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+
+        <h2 class="section-title">Grow your money</h2>
+        <div class="grow-grid">
+          <div class="grow-card">
+            <div class="grow-card__top">
+              <span class="grow-card__title">Cash ISA</span>
+              <span class="badge-new">New</span>
+            </div>
+            <div class="grow-card__rate">5.17% <small>APY</small></div>
+            <p class="grow-card__desc">Tax-free savings to grow your money</p>
+            <span class="learn-more">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="grow-card__icon grow-card__icon--plant"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21v-9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="M12 12c0-3.9 2.9-5.8 6.5-5.8 0 3.9-2.9 5.8-6.5 5.8Z" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/><path d="M12 14.8c0-2.9-2.2-4.3-5-4.3 0 2.9 2.2 4.3 5 4.3Z" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="grow-card">
+            <div class="grow-card__top">
+              <span class="grow-card__title">Plum Interest</span>
+            </div>
+            <div class="grow-card__rate">8.11% <small>APY</small></div>
+            <p class="grow-card__desc">Variable annual interest rate</p>
+            <span class="learn-more">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="grow-card__icon grow-card__icon--percent"><svg viewBox="0 0 24 24" fill="none"><circle cx="7.5" cy="7.5" r="2.4" stroke="currentColor" stroke-width="2.1"/><circle cx="16.5" cy="16.5" r="2.4" stroke="currentColor" stroke-width="2.1"/><path d="M17.5 6.5 6.5 17.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></div>
+          </div>
+        </div>
+
+        <h2 class="section-title">Get started</h2>
+        <div class="challenge-card">
+          <div class="challenge-card__icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none"><path d="M6 21V4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="M6 4.6c1.6-1 3.4-1 5 0s3.4 1 5 0v7.8c-1.6 1-3.4 1-5 0s-3.4-1-5 0" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+          <div class="challenge-card__text">
+            <strong>1P Challenge</strong>
+            <span>Set aside $667 in a year</span>
+          </div>
+          <button class="challenge-card__start" data-action="transfer">Start
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="reset-row">
+          <button class="reset-link" id="btnReset">Reset demo data</button>
+        </div>
+      </main>
+    </section>
+
+    <!-- ============ SEND MONEY ============ -->
+    <section class="screen" id="screen-send">
+      <div class="flow-header">
+        <button class="back-btn" data-back="home" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span></span>
+        <button class="cancel-btn" data-back="home">Cancel</button>
+      </div>
+      <div class="flow-body">
+        <h1 class="flow-title">Send money</h1>
+        <p class="flow-sub">Enter the bank details to send money</p>
+
+        <form id="sendForm" novalidate>
+          <label class="field">
+            <span class="field__icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="2"/><path d="M5 19c1-3.3 3.8-5 7-5s6 1.7 7 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span class="field__content">
+              <span class="field__label">Account name</span>
+              <input type="text" id="recipName" placeholder="e.g. John Doe" autocomplete="off" required />
+            </span>
+          </label>
+          <p class="field-error" id="err-recipName"></p>
+
+          <label class="field field--select">
+            <span class="field__icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 10.5 12 4l8 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="currentColor" stroke-width="2"/><path d="M9 19v-5h6v5" stroke="currentColor" stroke-width="2"/></svg>
+            </span>
+            <span class="field__content">
+              <span class="field__label">Bank</span>
+              <select id="recipBank" required>
+                <option value="" disabled selected>Select bank</option>
+                <option>Chase Bank</option>
+                <option>Bank of America</option>
+                <option>Wells Fargo</option>
+                <option>Citibank</option>
+                <option>Access Bank</option>
+                <option>GTBank</option>
+                <option>Zenith Bank</option>
+              </select>
+            </span>
+            <svg class="select-chev" viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </label>
+          <p class="field-error" id="err-recipBank"></p>
+
+          <label class="field">
+            <span class="field__icon">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>
+            </span>
+            <span class="field__content">
+              <span class="field__label">Account number</span>
+              <input type="text" id="recipAccount" placeholder="Enter account number" inputmode="numeric" maxlength="12" autocomplete="off" required />
+            </span>
+          </label>
+          <p class="field-error" id="err-recipAccount"></p>
+
+          <div class="amount-block">
+            <span class="amount-block__label">Amount</span>
+            <div class="amount-input">
+              <span class="amount-input__sign">$</span>
+              <input type="text" id="sendAmount" placeholder="0.00" inputmode="decimal" required />
+            </div>
+          </div>
+          <p class="field-error" id="err-sendAmount"></p>
+
+          <div class="info-banner">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 8v5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="16" r="0.9" fill="currentColor"/></svg>
+            <span>Transfers are usually processed within a few minutes and cannot be canceled.</span>
+          </div>
+        </form>
+      </div>
+      <div class="flow-footer">
+        <button class="btn-primary" id="btnContinue">Continue</button>
+      </div>
+    </section>
+
+    <!-- ============ REVIEW TRANSFER ============ -->
+    <section class="screen" id="screen-review">
+      <div class="flow-header">
+        <button class="back-btn" data-back="send" id="reviewBackBtn" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span></span><span></span>
+      </div>
+      <div class="flow-body">
+        <h1 class="flow-title" id="flowReviewTitle">Review transfer</h1>
+        <p class="flow-sub" id="flowReviewSub">Please review the details before sending</p>
+
+        <div class="review-card">
+          <div class="review-row">
+            <span class="review-row__label" id="rvNameLabel">Account name</span>
+            <span class="review-row__value" id="rvName">John Doe</span>
+          </div>
+          <div class="review-row">
+            <span class="review-row__label" id="rvBankLabel">Bank</span>
+            <span class="review-row__value review-row__value--bank"><span class="bank-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10 12 4.8 20 10" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v8.2M9.5 10v8.2M14.5 10v8.2M18.5 10v8.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="M4 18.5h16" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></span> <span id="rvBank">Chase Bank</span></span>
+          </div>
+          <div class="review-row">
+            <span class="review-row__label" id="rvAccountLabel">Account number</span>
+            <span class="review-row__value" id="rvAccount">**** 1234</span>
+          </div>
+          <div class="review-row">
+            <span class="review-row__label">Amount</span>
+            <span class="review-row__value" id="rvAmount">$0.00</span>
+          </div>
+          <div class="review-row">
+            <span class="review-row__label">Fee</span>
+            <span class="review-row__value">$0.00</span>
+          </div>
+          <div class="review-row review-row--total">
+            <span class="review-row__label">Total</span>
+            <span class="review-row__value review-row__value--total" id="rvTotal">$0.00</span>
+          </div>
+          <div class="review-row">
+            <span class="review-row__label" id="rvWhenLabel">Send on</span>
+            <span class="review-row__value" id="rvWhenValue">Now</span>
+          </div>
+        </div>
+
+        <p class="legal-note">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.9"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.9"/></svg>
+          <span id="reviewLegalText">By tapping "Send money", you authorize this transfer and agree to our Terms of Service.</span>
+        </p>
+      </div>
+      <div class="flow-footer">
+        <button class="btn-primary" id="btnSendMoney">Send money</button>
+        <button class="btn-text" data-back="send" id="reviewCancelBtn">Cancel</button>
+      </div>
+    </section>
+
+    <!-- ============ PENDING ============ -->
+    <section class="screen screen--status" id="screen-pending">
+      <div class="status-bg status-bg--pending"></div>
+      <div class="status-content">
+        <div class="status-icon status-icon--pending">
+          <svg class="pending-ring" viewBox="0 0 88 88" width="74" height="74">
+            <circle class="pending-ring__track" cx="44" cy="44" r="37"/>
+            <circle class="pending-ring__fill" cx="44" cy="44" r="37"/>
+          </svg>
+          <span class="pending-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M4 12h13M12 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <h1 class="status-title" id="pendingTitle">Sending your money</h1>
+        <p class="status-sub" id="pendingSub">$0.00 has been sent and is being processed.</p>
+
+        <ol class="pending-steps" id="pendingSteps">
+          <li class="pending-step" data-step="0">
+            <span class="pending-step__marker"><svg class="pending-step__check" viewBox="0 0 24 24" width="11" height="11" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Verifying transfer details</span>
+          </li>
+          <li class="pending-step" data-step="1">
+            <span class="pending-step__marker"><svg class="pending-step__check" viewBox="0 0 24 24" width="11" height="11" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Processing your payment</span>
+          </li>
+          <li class="pending-step" data-step="2">
+            <span class="pending-step__marker"><svg class="pending-step__check" viewBox="0 0 24 24" width="11" height="11" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Confirming with the bank</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="status-details">
+        <div class="review-row"><span class="review-row__label" id="pdNameLabel">Account name</span><span class="review-row__value" id="pdName">John Doe</span></div>
+        <div class="review-row"><span class="review-row__label" id="pdBankLabel">Bank</span><span class="review-row__value review-row__value--bank"><span class="bank-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10 12 4.8 20 10" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v8.2M9.5 10v8.2M14.5 10v8.2M18.5 10v8.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="M4 18.5h16" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></span> <span id="pdBank">Chase Bank</span></span></div>
+        <div class="review-row"><span class="review-row__label" id="pdAccountLabel">Account number</span><span class="review-row__value" id="pdAccount">**** 1234</span></div>
+        <div class="review-row"><span class="review-row__label">Amount</span><span class="review-row__value" id="pdAmount">$0.00</span></div>
+        <div class="review-row"><span class="review-row__label">Fee</span><span class="review-row__value">$0.00</span></div>
+        <div class="review-row review-row--total"><span class="review-row__label">Total</span><span class="review-row__value review-row__value--total" id="pdTotal">$0.00</span></div>
+        <div class="review-row"><span class="review-row__label">Estimated arrival</span><span class="review-row__value" id="pdEta">Within a few minutes</span></div>
+        <div class="review-row"><span class="review-row__label">Transaction ID</span><span class="review-row__value" id="pdTxn">TXN000000000</span></div>
+      </div>
+    </section>
+
+    <!-- ============ SUCCESS ============ -->
+    <section class="screen screen--status" id="screen-success">
+      <div class="status-bg status-bg--success"></div>
+      <div class="status-content">
+        <div class="status-icon status-icon--success">
+          <svg viewBox="0 0 24 24" width="46" height="46" fill="none">
+            <circle cx="12" cy="12" r="9.2" stroke="#fff" stroke-width="2"/>
+            <path id="checkPath" d="M7.5 12.5l3 3 6-6.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h1 class="status-title" id="successTitle">Your transfer was successful!</h1>
+        <p class="status-sub" id="successSub">$0.00 has been sent successfully.</p>
+      </div>
+
+      <div class="status-details">
+        <div class="review-row"><span class="review-row__label" id="scNameLabel">Account name</span><span class="review-row__value" id="scName">John Doe</span></div>
+        <div class="review-row"><span class="review-row__label" id="scBankLabel">Bank</span><span class="review-row__value review-row__value--bank"><span class="bank-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10 12 4.8 20 10" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v8.2M9.5 10v8.2M14.5 10v8.2M18.5 10v8.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="M4 18.5h16" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></span> <span id="scBank">Chase Bank</span></span></div>
+        <div class="review-row"><span class="review-row__label" id="scAccountLabel">Account number</span><span class="review-row__value" id="scAccount">**** 1234</span></div>
+        <div class="review-row"><span class="review-row__label">Amount</span><span class="review-row__value" id="scAmount">$0.00</span></div>
+        <div class="review-row"><span class="review-row__label">Fee</span><span class="review-row__value">$0.00</span></div>
+        <div class="review-row review-row--total"><span class="review-row__label">Total</span><span class="review-row__value review-row__value--total" id="scTotal">$0.00</span></div>
+        <div class="review-row"><span class="review-row__label">Date &amp; time</span><span class="review-row__value" id="scDate">—</span></div>
+        <div class="review-row"><span class="review-row__label">Transaction ID</span><span class="review-row__value" id="scTxn">TXN000000000</span></div>
+      </div>
+
+      <div class="flow-footer flow-footer--status">
+        <button class="btn-primary" id="btnDone">Done</button>
+        <button class="btn-text" id="btnViewTx">View transactions</button>
+      </div>
+    </section>
+
+    <!-- ============ ACTIVITY ============ -->
+    <section class="screen screen--plain" id="screen-activity">
+      <header class="plain-header">
+        <h1>Activity</h1>
+      </header>
+      <div class="plain-body">
+        <div class="segmented" id="activityFilter">
+          <button class="segmented__btn is-active" data-filter="all">All</button>
+          <button class="segmented__btn" data-filter="completed">Completed</button>
+          <button class="segmented__btn" data-filter="pending">Pending</button>
+        </div>
+        <div id="activityList" class="tx-list"></div>
+      </div>
+    </section>
+
+    <!-- ============ ACCOUNT DETAIL (Spending/Savings transactions) ============ -->
+    <section class="screen screen--plain" id="screen-account-detail">
+      <header class="plain-header">
+        <button class="back-btn back-btn--dark" data-back="home" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="acctDetailTitle">Spending Account</h1>
+      </header>
+      <div class="plain-body">
+        <div class="acct-balance-hero">
+          <span class="acct-balance-hero__label">Available balance</span>
+          <span class="acct-balance-hero__amount" id="acctDetailBalance">$0.00</span>
+        </div>
+        <h2 class="section-title section-title--tight">Transactions</h2>
+        <div id="acctDetailList" class="tx-list"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROFILE ============ -->
+    <section class="screen screen--plain" id="screen-profile">
+      <header class="plain-header">
+        <button class="back-btn back-btn--dark" data-back="home" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1>Profile</h1>
+      </header>
+      <div class="plain-body">
+        <div class="profile-hero">
+          <div class="avatar avatar--lg" id="profileAvatar">E</div>
+          <h2 id="profileName">Esther Adaeze</h2>
+          <p id="profileEmail">esther.adaeze@plumupdated.demo</p>
+        </div>
+
+        <div class="profile-list">
+          <button class="profile-row">
+            <span>Personal details</span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="profile-row">
+            <span>Security &amp; login</span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="profile-row" id="btnTransactionPin">
+            <span class="profile-row__main">Transaction PIN
+              <span class="profile-row__sub" id="pinRowStatus">Not set up</span>
+            </span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="profile-row">
+            <span>Linked banks</span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="profile-row">
+            <span>Notifications</span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="profile-row">
+            <span>Help &amp; support</span>
+            <svg class="chev chev--small" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <h2 class="section-title section-title--tight">Appearance</h2>
+        <div class="profile-list">
+          <div class="profile-row profile-row--switch">
+            <span>Dark theme<br /><small>Switch the app to a dark color scheme</small></span>
+            <div class="switch-group">
+              <span class="switch-label" id="darkToggleLabel">Off</span>
+              <button class="switch" id="btnDarkToggle" role="switch" aria-checked="false" aria-label="Toggle dark theme">
+                <span class="switch__knob"></span>
+              </button>
+            </div>
+          </div>
+          <div class="profile-row profile-row--switch">
+            <span>Use Chime app font<br /><small>Swap the app's typeface to a Chime-style look</small></span>
+            <div class="switch-group">
+              <span class="switch-label" id="fontToggleLabel">Default</span>
+              <button class="switch" id="btnFontToggle" role="switch" aria-checked="false" aria-label="Toggle Chime app font">
+                <span class="switch__knob"></span>
+              </button>
+            </div>
+          </div>
+          <div class="profile-row profile-row--switch">
+            <span>Use PayPal-style font<br /><small>Swap the app's typeface to a PayPal-style look</small></span>
+            <div class="switch-group">
+              <span class="switch-label" id="paypalToggleLabel">Default</span>
+              <button class="switch" id="btnPaypalToggle" role="switch" aria-checked="false" aria-label="Toggle PayPal-style font">
+                <span class="switch__knob"></span>
+              </button>
+            </div>
+          </div>
+          <div class="profile-row profile-row--switch">
+            <span>Use £ currency symbol<br /><small>Show balances and amounts in pounds (£) instead of dollars ($)</small></span>
+            <div class="switch-group">
+              <span class="switch-label" id="currencyToggleLabel">$</span>
+              <button class="switch" id="btnCurrencyToggle" role="switch" aria-checked="false" aria-label="Toggle currency symbol">
+                <span class="switch__knob"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button class="reset-btn-full" id="btnResetFull">Reset demo data</button>
+        <p class="version-tag">Plum Updated · Demo build 1.0.0</p>
+      </div>
+    </section>
+
+    <!-- ============ DEPOSIT: CHOOSE METHOD ============ -->
+    <section class="screen screen--plain" id="screen-deposit-method">
+      <header class="plain-header">
+        <button class="back-btn back-btn--dark" data-back="home" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1>Add money</h1>
+      </header>
+      <div class="plain-body">
+        <p class="flow-sub" style="margin:-6px 0 18px;">Choose how you'd like to add money to your Spending account.</p>
+
+        <button class="option-card" id="btnDepositCard">
+          <span class="option-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2.4" stroke="currentColor" stroke-width="2.1"/><path d="M3 10.5h18" stroke="currentColor" stroke-width="2.1"/></svg>
+          </span>
+          <span class="option-card__text">
+            <strong>Bank card</strong>
+            <span>Add money instantly from a linked debit card</span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <button class="option-card" id="btnDepositMerchant">
+          <span class="option-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5 5.4 4h13.2l1.4 5.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9.5a2.6 2.6 0 0 0 5.2 0 2.6 2.6 0 0 0 5.2 0 2.6 2.6 0 0 0 5.2 0" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 11v8.5h13V11" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/><path d="M10 19.5V15h4v4.5" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="option-card__text">
+            <strong>Receive from merchant</strong>
+            <span>Deposit cash at a partner store location</span>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ DEPOSIT: MERCHANT INFO ============ -->
+    <section class="screen screen--plain" id="screen-deposit-merchant">
+      <header class="plain-header">
+        <button class="back-btn back-btn--dark" data-back="deposit-method" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1>Receive from merchant</h1>
+      </header>
+      <div class="plain-body">
+        <div class="merchant-code-card">
+          <span class="merchant-code-card__label">Your deposit code</span>
+          <span class="merchant-code-card__code" id="merchantCode">PLM-48213</span>
+          <svg class="merchant-barcode" viewBox="0 0 220 46" preserveAspectRatio="none" aria-hidden="true">
+            <rect x="0" y="0" width="3" height="46"/><rect x="6" y="0" width="1.5" height="46"/><rect x="11" y="0" width="4" height="46"/><rect x="18" y="0" width="1.5" height="46"/><rect x="23" y="0" width="2.5" height="46"/><rect x="29" y="0" width="1.5" height="46"/><rect x="34" y="0" width="4" height="46"/><rect x="41" y="0" width="2.5" height="46"/><rect x="47" y="0" width="1.5" height="46"/><rect x="52" y="0" width="4" height="46"/><rect x="59" y="0" width="1.5" height="46"/><rect x="64" y="0" width="2.5" height="46"/><rect x="70" y="0" width="4" height="46"/><rect x="77" y="0" width="1.5" height="46"/><rect x="82" y="0" width="1.5" height="46"/><rect x="87" y="0" width="4" height="46"/><rect x="94" y="0" width="2.5" height="46"/><rect x="100" y="0" width="1.5" height="46"/><rect x="105" y="0" width="4" height="46"/><rect x="112" y="0" width="1.5" height="46"/><rect x="117" y="0" width="2.5" height="46"/><rect x="123" y="0" width="4" height="46"/><rect x="130" y="0" width="1.5" height="46"/><rect x="135" y="0" width="1.5" height="46"/><rect x="140" y="0" width="4" height="46"/><rect x="147" y="0" width="2.5" height="46"/><rect x="153" y="0" width="1.5" height="46"/><rect x="158" y="0" width="4" height="46"/><rect x="165" y="0" width="1.5" height="46"/><rect x="170" y="0" width="2.5" height="46"/><rect x="176" y="0" width="4" height="46"/><rect x="183" y="0" width="1.5" height="46"/><rect x="188" y="0" width="1.5" height="46"/><rect x="193" y="0" width="4" height="46"/><rect x="200" y="0" width="2.5" height="46"/><rect x="206" y="0" width="1.5" height="46"/><rect x="211" y="0" width="4" height="46"/><rect x="217" y="0" width="2" height="46"/>
+          </svg>
+          <span class="merchant-code-card__hint">Show this code to the cashier along with your cash.</span>
+        </div>
+
+        <h2 class="section-title section-title--tight">Nearby partner locations</h2>
+        <div class="merchant-list">
+          <div class="merchant-row">
+            <span class="merchant-row__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5 5.4 4h13.2l1.4 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 11v8.5h13V11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            <div class="merchant-row__text"><strong>Corner Market</strong><span>0.3 mi away · Open until 11pm</span></div>
+          </div>
+          <div class="merchant-row">
+            <span class="merchant-row__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5 5.4 4h13.2l1.4 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 11v8.5h13V11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            <div class="merchant-row__text"><strong>QuickStop Grocery</strong><span>0.8 mi away · Open 24 hours</span></div>
+          </div>
+          <div class="merchant-row">
+            <span class="merchant-row__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5 5.4 4h13.2l1.4 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 11v8.5h13V11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            <div class="merchant-row__text"><strong>Value Drugstore</strong><span>1.1 mi away · Open until 9pm</span></div>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="btnMerchantSimulate" style="margin-top:22px;">I've made my cash deposit</button>
+      </div>
+    </section>
+
+    <!-- ============ DEPOSIT: AMOUNT (shared: card + merchant) ============ -->
+    <section class="screen" id="screen-deposit-amount">
+      <div class="flow-header">
+        <button class="back-btn" data-back="deposit-method" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span></span>
+        <button class="cancel-btn" data-back="home">Cancel</button>
+      </div>
+      <div class="flow-body">
+        <h1 class="flow-title">Add money</h1>
+        <p class="flow-sub">Enter how much you'd like to add</p>
+
+        <div id="depositSourceRow"></div>
+
+        <div class="amount-block">
+          <span class="amount-block__label">Amount</span>
+          <div class="amount-input">
+            <span class="amount-input__sign">$</span>
+            <input type="text" id="depositAmount" placeholder="0.00" inputmode="decimal" />
+          </div>
+        </div>
+        <p class="field-error" id="err-depositAmount"></p>
+
+        <div class="info-banner">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 8v5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="16" r="0.9" fill="currentColor"/></svg>
+          <span id="depositInfoText">Card deposits are typically available in your Spending account within minutes.</span>
+        </div>
+      </div>
+      <div class="flow-footer">
+        <button class="btn-primary" id="btnDepositContinue">Continue</button>
+      </div>
+    </section>
+
+    <!-- ============ CARDS ============ -->
+    <section class="screen screen--plain" id="screen-cards">
+      <header class="plain-header">
+        <button class="back-btn back-btn--dark" data-back="home" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1>Cards</h1>
+      </header>
+      <div class="plain-body">
+        <div class="card3d-stage" id="card3dStage"></div>
+
+        <button class="btn-primary" id="btnAddCard" style="margin:4px 0 24px;">Link a new card</button>
+
+        <h2 class="section-title section-title--tight">Linked cards</h2>
+        <div class="card-list" id="cardList"></div>
+      </div>
+    </section>
+
+    <!-- ============ CARDS: ADD ============ -->
+    <section class="screen" id="screen-card-add">
+      <div class="flow-header">
+        <button class="back-btn" data-back="cards" aria-label="Back">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span></span>
+        <button class="cancel-btn" data-back="cards">Cancel</button>
+      </div>
+      <div class="flow-body">
+        <h1 class="flow-title">Link a card</h1>
+        <p class="flow-sub">Add a debit card to fund instant deposits</p>
+
+        <div class="card3d-stage card3d-stage--form">
+          <div class="card3d card3d--indigo" id="previewCard3d">
+            <div class="card3d__inner">
+              <div class="card3d__sheen"></div>
+              <div class="card3d__top">
+                <svg class="card3d__chip" viewBox="0 0 34 24" fill="none"><rect x="0.5" y="0.5" width="33" height="23" rx="4" fill="url(#chipGrad)" stroke="rgba(0,0,0,0.25)"/><path d="M0.5 8h33M0.5 16h33M12 0.5v23M22 0.5v23" stroke="rgba(0,0,0,0.25)" stroke-width="0.6"/><defs><linearGradient id="chipGrad" x1="0" y1="0" x2="34" y2="24"><stop offset="0" stop-color="#f4e4b0"/><stop offset="1" stop-color="#cba75a"/></linearGradient></defs></svg>
+                <span class="card3d__network" id="previewNetwork">CARD</span>
+              </div>
+              <div class="card3d__number" id="previewNumber">•••• •••• •••• ••••</div>
+              <div class="card3d__bottom">
+                <div class="card3d__field">
+                  <span class="card3d__field-label">Card holder</span>
+                  <span class="card3d__holder" id="previewHolder">YOUR NAME</span>
+                </div>
+                <div class="card3d__field card3d__field--right">
+                  <span class="card3d__field-label">Expires</span>
+                  <span class="card3d__expiry" id="previewExpiry">MM/YY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="cardAddForm" novalidate>
+          <label class="field">
+            <span class="field__icon">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>
+            </span>
+            <span class="field__content">
+              <span class="field__label">Card number</span>
+              <input type="text" id="cardNumber" placeholder="1234 1234 1234 1234" inputmode="numeric" maxlength="19" autocomplete="off" required />
+            </span>
+          </label>
+          <p class="field-error" id="err-cardNumber"></p>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field__content">
+                <span class="field__label">Expiry</span>
+                <input type="text" id="cardExpiry" placeholder="MM/YY" inputmode="numeric" maxlength="5" autocomplete="off" required />
+              </span>
+            </label>
+            <label class="field">
+              <span class="field__content">
+                <span class="field__label">CVV</span>
+                <input type="text" id="cardCvv" placeholder="•••" inputmode="numeric" maxlength="4" autocomplete="off" required />
+              </span>
+            </label>
+          </div>
+          <p class="field-error" id="err-cardExpiry"></p>
+
+          <label class="field">
+            <span class="field__icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="2"/><path d="M5 19c1-3.3 3.8-5 7-5s6 1.7 7 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span class="field__content">
+              <span class="field__label">Cardholder name</span>
+              <input type="text" id="cardHolder" placeholder="e.g. Esther Adaeze" autocomplete="off" required />
+            </span>
+          </label>
+          <p class="field-error" id="err-cardHolder"></p>
+
+          <div class="info-banner">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.9"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.9"/></svg>
+            <span>Card details are only stored on this device for this demo and are never sent anywhere.</span>
+          </div>
+        </form>
+      </div>
+      <div class="flow-footer">
+        <button class="btn-primary" id="btnCardAddSave">Link card</button>
+      </div>
+    </section>
+
+    <!-- ============ MORE SHEET (bottom sheet) ============ -->
+    <div class="sheet-overlay" id="sheetOverlay"></div>
+    <div class="sheet" id="moreSheet">
+      <div class="sheet__handle"></div>
+      <h3 class="sheet__title">More</h3>
+      <button class="sheet__item" data-action="transfer">
+        <span class="sheet__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8h17m0 0-4.5-4.5M20 8l-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 16H4m0 0 4.5-4.5M4 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Transfer between accounts
+      </button>
+      <button class="sheet__item" data-action="send">
+        <span class="sheet__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="8.2" r="3.8" stroke="currentColor" stroke-width="2"/><path d="M3.6 20.5c1.2-5.2 4.1-7.6 7.4-7.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="17.5" r="5.3" fill="#16a34a" stroke="#fff" stroke-width="1.4"/><path d="M18 15.1v4.8M15.6 17.5h4.8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></span> Pay anyone
+      </button>
+      <button class="sheet__item" data-action="deposit">
+        <span class="sheet__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0-4.5-4.5M12 16l4.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span> Deposit money
+      </button>
+      <button class="sheet__item" data-close-sheet="1">
+        <span class="sheet__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span> Close
+      </button>
+    </div>
+
+    <!-- ============ PIN MODAL ============ -->
+    <div class="pin-overlay" id="pinOverlay"></div>
+    <div class="pin-modal" id="pinModal">
+      <div class="pin-modal__handle"></div>
+      <button class="pin-modal__close" id="pinModalClose" aria-label="Close">&times;</button>
+      <div class="pin-modal__icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2.4" stroke="currentColor" stroke-width="2.1"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2.1"/></svg>
+      </div>
+      <h3 class="pin-modal__title" id="pinModalTitle">Enter your PIN</h3>
+      <p class="pin-modal__sub" id="pinModalSub">Enter your 4-digit PIN to confirm this transfer.</p>
+      <div class="pin-dots" id="pinDots">
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+      </div>
+      <p class="pin-modal__error" id="pinModalError"></p>
+      <input type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" class="pin-hidden-input" id="pinHiddenInput" aria-label="PIN input" />
+    </div>
+
+    <!-- ============ RELOAD OVERLAY (swipe up anywhere) ============ -->
+    <div class="reload-overlay" id="reloadOverlay" aria-hidden="true">
+      <div class="reload-badge">
+        <svg class="reload-ring" viewBox="0 0 88 88" width="72" height="72">
+          <circle class="reload-ring__track" cx="44" cy="44" r="37"/>
+          <circle class="reload-ring__fill" cx="44" cy="44" r="37"/>
+        </svg>
+        <span class="reload-mark">P</span>
+        <svg class="reload-check" viewBox="0 0 24 24" width="30" height="30" fill="none">
+          <path id="reloadCheckPath" d="M5 13l4.5 4.5L19 8" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="reload-label" id="reloadLabel">Refreshing…</p>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ============ BOTTOM NAV ============ -->
+    <nav class="bottom-nav" id="bottomNav">
+      <span class="nav-indicator" id="navIndicator"></span>
+      <button class="nav-item is-active" data-tab="home">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9.5a1 1 0 0 0 1 1h3.5v-5.5a1.5 1.5 0 0 1 1.5-1.5h0a1.5 1.5 0 0 1 1.5 1.5v5.5H17a1 1 0 0 0 1-1V10" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="nav-item" data-tab="cards">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5.5" width="19" height="13" rx="2.4" stroke="currentColor" stroke-width="2"/><path d="M2.5 9.5h19" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Cards</span>
+      </button>
+      <button class="nav-item" data-tab="activity">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V10M10 19V5M16 19v-7M22 19v-4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Activity</span>
+      </button>
+    </nav>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
